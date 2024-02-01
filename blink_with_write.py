@@ -38,6 +38,8 @@ while switchState == False:
 with open('data.txt', 'a') as f:
     loop = 0
     while IterCount > 0:
+        switchState = GPIO.input(pin5)
+        if switchState == False: break
         loop += 1
         if Debug:
             print(f'Number of times through loop: {loop}')

@@ -11,7 +11,9 @@ switchState = GPIO.input(pin5)
 while switchState == False:
     switchState = GPIO.input(pin5)
     sleep(.5)
-
-GPIO.output(pin11, GPIO.HIGH)
-sleep(.5)
+while switchState == True:
+    GPIO.output(pin11, GPIO.HIGH)
+    sleep(.5)
+    switchState = GPIO.input(pin5)
+    if switchState == False: break
 GPIO.cleanup()
